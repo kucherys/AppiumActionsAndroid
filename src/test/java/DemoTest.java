@@ -20,8 +20,9 @@ public class DemoTest extends BaseClassAndroid {
 
         launchPage.verifySignUpButton("I'm new to Digibank");
         launchPage.verifyLogInButton("Log In");
-        System.out.println("TESTS COMPLETED");
+
+        System.out.println("TESTS COMPLETED AGAIN");
 
     }
-    
+
 }
