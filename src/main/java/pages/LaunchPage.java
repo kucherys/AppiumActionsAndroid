@@ -46,6 +46,11 @@ public class LaunchPage extends BaseClassAndroid {
         Assert.assertEquals(expectedName, actualName);
     }
 
+    public String getLogInButtonName(){
+        return driver.findElement(logInButton).getText();
+
+    }
+
     public void verifyWelcomeLabel(String expectedLabel, String expectedSubLabel){
         String actualLabel = driver.findElement(welcomeTitle).getText();
         String actualSubLabel = driver.findElement(welcomeSubTitle).getText();

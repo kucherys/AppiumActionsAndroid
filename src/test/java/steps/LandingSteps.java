@@ -50,8 +50,14 @@ public class LandingSteps extends BaseClassAndroid {
     }
 
     @Then("^I confirm tests completed with result (.+)$")
-    public void confitmTets(String result) {
-            System.out.println("CUCUMBER TESTS PASSED WITH RESILT: " + result);
+    public void confitmTests(String result) {
+            System.out.println("CUCUMBER TESTS PASSED WITH RESULT: " + result);
+
+    }
+
+    @Then("I print login button name")
+    public void printButtonName() {
+        System.out.println("BUTTON NAME IS : " + androidLaunchPage.getLogInButtonName());
 
     }
 
