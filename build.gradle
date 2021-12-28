@@ -30,16 +30,33 @@ dependencies {
     implementation 'info.cukes:cucumber-java:1.2.5'
     implementation 'info.cukes:cucumber-testng:1.2.4'
     testImplementation 'info.cukes:cucumber-junit:1.2.5'
-    testImplementation 'io.cucumber:cucumber-java8:6.1.1'
+//    testImplementation 'io.cucumber:cucumber-java8:6.1.1'
 
     // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
     implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.1.0'
+    testImplementation 'io.cucumber:cucumber-java:7.0.0'
 
 }
-
-test {
-    useJUnitPlatform()
-    //this is the gradle task to be executed
-    useTestNG() { //Tells Gradle to use TestNG
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
     }
 }
+
+task cucumber() {
+    dependsOn assemble, testClasses
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty', '--glue', 'gradle.cucumber', 'src/test/resources', '--tags']
+        }
+    }
+}
+
+//test {
+//    useJUnitPlatform()
+//    //this is the gradle task to be executed
+//    useTestNG() { //Tells Gradle to use TestNG
+//    }
+//}
