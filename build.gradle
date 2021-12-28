@@ -33,8 +33,8 @@ dependencies {
 //    testImplementation 'io.cucumber:cucumber-java8:6.1.1'
 
     // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
-    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.1.0'
-    testImplementation 'io.cucumber:cucumber-java:7.0.0'
+//    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.1.0'
+    testImplementation 'io.cucumber:cucumber-java:7.1.0'
 
 }
 configurations {
@@ -58,9 +58,9 @@ task cucumber() {
     }
 }
 
-//test {
-//    useJUnitPlatform()
-//    //this is the gradle task to be executed
-//    useTestNG() { //Tells Gradle to use TestNG
-//    }
-//}
+test {
+    useJUnitPlatform()
+    //this is the gradle task to be executed
+    useTestNG() { //Tells Gradle to use TestNG
+    }
+}
