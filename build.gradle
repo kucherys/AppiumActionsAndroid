@@ -58,9 +58,9 @@ task cucumber() {
     }
 }
 
-test {
-    useJUnitPlatform()
+//test {
+//    useJUnitPlatform()
     //this is the gradle task to be executed
 //    useTestNG() { //Tells Gradle to use TestNG
 //    }
-}
+//}
